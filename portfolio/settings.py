@@ -40,12 +40,10 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
-    'cloudinary_storage',
     'django.contrib.staticfiles',
     'rest_framework',
     'home',
     'corsheaders',
-    'cloudinary',
 ]
 
 REST_FRAMEWORK = {
@@ -143,15 +141,6 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
-
-CLOUDINARY_STORAGE = {
-    'CLOUD_NAME': 'hyarykxby',
-    'API_KEY': '872946897863374',
-    'API_SECRET': 'rqilP3hbbSRZZ2uCmgT81PorjcA',
-}
-
-
-
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
