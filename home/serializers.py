@@ -5,4 +5,4 @@ from .models import Project
 class ProjectSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Project
-        fields = ['name', 'description','image', 'url',]
+        fields = ['name', 'description','image', 'url', 'git']
