@@ -4,6 +4,6 @@ from django.db import models
 class Project(models.Model):
     name = models.CharField(max_length=30)
     image = models.ImageField(blank=True, default="default.jpg")
-    git = models.URLField()
-    demo = models.URLField(blank=True)
+    git = models.URLField(blank=True)
+    url = models.URLField(blank=True)
     description = models.TextField()
