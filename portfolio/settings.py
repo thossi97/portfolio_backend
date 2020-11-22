@@ -22,10 +22,10 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # See https://docs.djangoproject.com/en/3.1/howto/deployment/checklist/
 
 # SECURITY WARNING: keep the secret key used in production secret!
-# SECRET_KEY = 't*h311(4g=7j6^yypa5!cv%%saoa7gz)9g^&ud$f_r*q6#4u*('
-SECRET_KEY = os.environ.get('SECRET_KEY')
+SECRET_KEY = 't*h311(4g=7j6^yypa5!cv%%saoa7gz)9g^&ud$f_r*q6#4u*('
+# SECRET_KEY = os.environ.get('SECRET_KEY')
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = [
     'thorsteinn-portfolio.herokuapp.com',
@@ -44,7 +44,9 @@ INSTALLED_APPS = [
     'rest_framework',
     'home',
     'corsheaders',
+    'storages',
 ]
+
 
 REST_FRAMEWORK = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.PageNumberPagination',
@@ -141,10 +143,19 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
+
+AWS_ACCESS_KEY_ID = os.environ.get('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = os.environ.get('AWS_SECRET_ACCESS_KEY')
+AWS_STORAGE_BUCKET_NAME = 'thorsteinn-portfolio'
+AWS_S3_REGION_NAME = 'eu-west-2'
+
+STATICFILES_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 STATIC_URL = '/static/'
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+#MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 MEDIA_URL = '/media/'
 
 django_heroku.settings(locals())
